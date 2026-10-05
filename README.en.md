@@ -80,4 +80,6 @@ Authority order is specification → schema → canonical/crypto algorithms → 
 
 ## License
 
-The license is not yet frozen in this Draft and will be decided separately before the first stable public release.
+This repository is licensed under the **Apache License 2.0**.
+
+Unless otherwise noted, the specifications, schemas, test vectors, fixtures, examples, and all other repository contents are licensed under Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
