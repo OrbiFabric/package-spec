@@ -82,4 +82,6 @@ Authority 顺序是规范 → Schema → canonical/crypto algorithm → vectors 
 
 ## License
 
-License 尚未在本 Draft 中冻结；在首次对外标记稳定版本前单独决定。
+本仓库采用 **Apache License 2.0**。
+
+除非文件另有明确说明，本仓库中的规范、Schema、测试向量、Fixture、示例及其他内容均按 Apache License 2.0 授权。详情见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
