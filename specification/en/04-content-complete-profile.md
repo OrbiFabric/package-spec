@@ -52,3 +52,5 @@ The protocol is provider-neutral; Hosts supply bytes through a Content Resolver.
 `PKG-CONTENT-040`: A Complete Profile MAY record original Provider, object ID, revision, and first-observed facts as provenance, but these fields MUST NOT be runtime dependencies for opening or reconstructing the Package.
 
 `PKG-CONTENT-041`: Credential-bearing URLs, OAuth tokens, refresh tokens, signed URLs, and secrets MUST NOT enter the Package.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

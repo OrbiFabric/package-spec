@@ -57,6 +57,7 @@ My Package/
 | 07 | [Delivery / Evidence](specification/zh-CN/07-delivery-evidence.md) | [Delivery / Evidence](specification/en/07-delivery-evidence.md) |
 | 08 | [Container Codecs](specification/zh-CN/08-container-codecs.md) | [Container Codecs](specification/en/08-container-codecs.md) |
 | 09 | [Conformance / Security](specification/zh-CN/09-conformance-security.md) | [Conformance / Security](specification/en/09-conformance-security.md) |
+| 10 | [实施合同](specification/zh-CN/10-implementation-contracts.md) | [Implementation contracts](specification/en/10-implementation-contracts.md) |
 
 Authority and governance: [SPEC-AUTHORITY.en.md](SPEC-AUTHORITY.en.md) · [中文](SPEC-AUTHORITY.md)  
 1.x clean break: [MIGRATION-1X-CLEAN-BREAK.en.md](MIGRATION-1X-CLEAN-BREAK.en.md) · [中文](MIGRATION-1X-CLEAN-BREAK.md)
@@ -70,7 +71,7 @@ Authority and governance: [SPEC-AUTHORITY.en.md](SPEC-AUTHORITY.en.md) · [中�
 - [`vectors/`](vectors/) — canonicalization/hash/signature golden vectors
 - [`conformance/`](conformance/) — cross-language expected results
 
-Concrete schemas/vectors are intentionally added only after the corresponding fields are frozen.
+Implementation fields and shared assets are frozen in chapter 10. Run `python3 conformance/check.py` for repository consistency; this does not certify SDK conformance.
 
 ## Reference implementation
 
@@ -83,3 +84,7 @@ Authority order is specification → schema → canonical/crypto algorithms → 
 This repository is licensed under the **Apache License 2.0**.
 
 Unless otherwise noted, the specifications, schemas, test vectors, fixtures, examples, and all other repository contents are licensed under Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+## Local consistency / 本地一致性
+
+Python 3.11+ with `jsonschema` 4.18+ and `cryptography` 41+: `python3 conformance/check.py`. No SDK or network is used.

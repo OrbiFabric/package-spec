@@ -48,3 +48,5 @@ Recommended fixtures include minimal-valid, complete-history, dirty-working-tree
 `PKG-CONF-040`: A protocol migration event MUST be distinct from a business PackageVersion; a structural protocol upgrade with unchanged logical state SHOULD NOT create a new business PackageVersion.
 
 `PKG-CONF-041`: For a future major upgrade, any destructive migration MUST be defined by that major's independent specification; 2.0 does not pre-authorize silent destruction of history.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

@@ -44,3 +44,5 @@ My Package.zip
 ## 5. Direct streaming implementation
 
 `PKG-CODEC-040`: An implementation MAY stream the same Package Tree plan directly into ZIP/TAR without first materializing a temporary directory, provided the logical result is equivalent to Directory Codec semantics.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

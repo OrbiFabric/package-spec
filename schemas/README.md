@@ -1,7 +1,23 @@
-# Schemas / 机器 Schema
+# schemas / 机器资产索引
 
-本目录承载 Package 2.0 的 machine-readable schemas。中文自然语言规范为主规范；Schema 对字段结构、类型、required/allowed values 具有规范性。
+JSON Schema 2020-12; structural authority. Cross-document and byte rules: PKG-CONTRACT-001–019.
 
-This directory contains machine-readable Package 2.0 schemas. The Chinese natural-language specification is primary; schemas are normative for field structure, types, and required/allowed values.
+Authority: [中文](../specification/zh-CN/10-implementation-contracts.md) / [English](../specification/en/10-implementation-contracts.md).
 
-Planned initial schemas include `format.v2`, `package.v2`, `version.v2`, `manifest.v2`, `notes.v1`, `tags.v1`, `provenance.v1`, `event.v1`, `version-signature.v2`, and delivery/evidence subjects. Schemas will be added only after the corresponding fields are frozen.
+- [cloud-anchor-subject.v1.schema.json](cloud-anchor-subject.v1.schema.json)
+- [delivery-receipt-subject.v1.schema.json](delivery-receipt-subject.v1.schema.json)
+- [delivery.v1.schema.json](delivery.v1.schema.json)
+- [event.v1.schema.json](event.v1.schema.json)
+- [evidence-envelope.v1.schema.json](evidence-envelope.v1.schema.json)
+- [format.v2.schema.json](format.v2.schema.json)
+- [lifecycle-witness-subject.v1.schema.json](lifecycle-witness-subject.v1.schema.json)
+- [manifest.v2.schema.json](manifest.v2.schema.json)
+- [metadata.v1.schema.json](metadata.v1.schema.json)
+- [notes.v1.schema.json](notes.v1.schema.json)
+- [package-witness-subject.v1.schema.json](package-witness-subject.v1.schema.json)
+- [package.v2.schema.json](package.v2.schema.json)
+- [provenance.v1.schema.json](provenance.v1.schema.json)
+- [tags.v1.schema.json](tags.v1.schema.json)
+- [version-signature.v2.schema.json](version-signature.v2.schema.json)
+- [version-subject.v2.schema.json](version-subject.v2.schema.json)
+- [version.v2.schema.json](version.v2.schema.json)

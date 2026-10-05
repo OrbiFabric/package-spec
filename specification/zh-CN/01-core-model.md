@@ -40,7 +40,7 @@
 
 `PKG-CORE-131`：Canonical timestamp MUST 使用 UTC RFC3339，格式 `YYYY-MM-DDThh:mm:ss.ffffffZ`。
 
-`PKG-CORE-132`：协议 authority 中的计数、size、ordinal MUST 使用非负整数，不使用浮点数表达精确身份事实。
+`PKG-CORE-132`：协议 authority 中的计数、size、ordinal MUST 使用非负整数，MUST NOT 使用浮点数表达精确身份事实。
 
 ## 5. `package.json`
 
@@ -50,10 +50,12 @@
 
 ```json
 {
-  "schema": "orbifabric.package.package.v2",
-  "package_id": "<uuid-v7>",
-  "created_at": "2026-10-04T21:00:00.000000Z"
+  "created_at": "2026-10-05T00:00:00.000000Z",
+  "package_id": "019a0000-0000-7000-8000-000000000001",
+  "schema": "orbifabric.package.package.v2"
 }
 ```
 
 `PKG-CORE-140`：`package.json` MUST NOT 包含 OAuth token、credential、OS Keyring 引用、绝对本地路径、Cloud session 或内部数据库 row ID。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

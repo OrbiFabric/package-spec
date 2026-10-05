@@ -51,3 +51,5 @@ versions/<package-version-id>/
 `PKG-VERSION-040`: Diff MUST at minimum report Added, Removed, Moved/Renamed, and Content Changed.
 
 `PKG-VERSION-041`: Path changes and Content changes MUST be distinct; a rename of the same FileID MUST NOT be represented as delete plus new file unless valid identity continuity cannot be established.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

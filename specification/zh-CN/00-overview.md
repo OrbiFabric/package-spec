@@ -8,11 +8,11 @@
 
 Package 2.0 定义一种可移植、可验证、可长期演进的数字材料对象。Package 可以脱离 Packtell、OrbiFabric Cloud、特定数据库和特定编程语言独立存在。
 
-`PKG-CORE-001`：Package MUST 拥有稳定 `package_id`，并且该身份不得由文件路径、容器文件名、ZIP 字节摘要、Cloud 记录或当前设备决定。
+`PKG-CORE-001`：Package MUST 拥有稳定 `package_id`，并且该身份 MUST NOT 由文件路径、容器文件名、ZIP 字节摘要、Cloud 记录或当前设备决定。
 
 `PKG-CORE-002`：Package Root MUST 同时承载普通用户文件/文件夹组成的 Working Tree 与根级保留控制目录 `.packtell/`。
 
-`PKG-CORE-003`：Directory 是 Package Tree 的基础物化。ZIP、TAR 及未来容器 MUST 仅编码同一 Package Tree，不得引入新的 Package 业务语义。
+`PKG-CORE-003`：Directory 是 Package Tree 的基础物化。ZIP、TAR 及未来容器 MUST 仅编码同一 Package Tree，MUST NOT 引入新的 Package 业务语义。
 
 `PKG-CORE-004`：Package MUST NOT 以 Packtell、Wails、SQLite、OrbiFabric Cloud、Google Drive、OneDrive、Dropbox 或任何单一 Host 为成立条件。
 
@@ -30,7 +30,7 @@ Package 2.0 定义一种可移植、可验证、可长期演进的数字材料�
 
 `PKG-CORE-005`：File Identity、Content Identity 与 Materialized Path MUST 永久分离。
 
-`PKG-CORE-006`：PackageVersion MUST 是逻辑状态，不得以某个 physical representation 是否存在作为成立条件。
+`PKG-CORE-006`：PackageVersion MUST 是逻辑状态，MUST NOT 以某个 physical representation 是否存在作为成立条件。
 
 `PKG-CORE-007`：Delivery、Receive、Archive、Witness、Receipt、Cloud 状态与搜索索引 MUST NOT 定义 Package identity。
 
@@ -53,3 +53,5 @@ Package 2.0 使用“小 Core + Profile”模型。
 ## 5. 非目标
 
 Package 2.0 Core 不定义：Packtell UI、Space/Family/Organization 权限、Cloud 计费、OAuth、Provider API、搜索索引、AI/MCP、协作聊天、任务管理或通用文件管理器行为。这些系统可以消费 Package Protocol，但不能改变 Core 语义。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

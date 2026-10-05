@@ -6,7 +6,7 @@
 
 `PKG-VERSION-001`：Package Root 中除根级 `.packtell/` 外的树 MUST 定义当前 Working Tree。
 
-`PKG-VERSION-002`：Working Tree MAY 被 Packtell 之外的软件直接修改；这种修改不得使 Package 丢失身份。
+`PKG-VERSION-002`：Working Tree MAY 被 Packtell 之外的软件直接修改；这种修改 MUST NOT 使 Package 丢失身份。
 
 `PKG-VERSION-003`：Reader MUST 将 Package recognition 与 Working Tree state 分开报告。
 
@@ -36,7 +36,7 @@ versions/<package-version-id>/
 
 `PKG-VERSION-022`：Version MAY 有 ordinal 与 label，但 `package_version_id` 是 portable identity。
 
-`PKG-VERSION-023`：版本 lineage MUST 使用 previous/parent VersionID 表达，不以文件名顺序推断。
+`PKG-VERSION-023`：版本 lineage MUST 使用 previous/parent VersionID 表达，MUST NOT 以文件名顺序推断。
 
 ## 4. Dirty export
 
@@ -50,4 +50,6 @@ versions/<package-version-id>/
 
 `PKG-VERSION-040`：Diff MUST 至少能够报告 Added、Removed、Moved/Renamed 与 Content Changed。
 
-`PKG-VERSION-041`：Path 变化与 Content 变化 MUST 分开表达；相同 FileID 的 rename 不得伪装为 delete+new-file，除非实现无法建立合法 identity continuity。
+`PKG-VERSION-041`：Path 变化与 Content 变化 MUST 分开表达；相同 FileID 的 rename MUST NOT 伪装为 delete+new-file，除非实现无法建立合法 identity continuity。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

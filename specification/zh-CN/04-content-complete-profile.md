@@ -23,7 +23,7 @@ Committed Version 的内容 bytes 使用 ContentID 去重保存于 Package porta
 
 `PKG-CONTENT-010`：Working Tree 是用户工作副本；object store 是 committed content authority 的 portable backing store。两者 MAY 物理重复相同 bytes。
 
-`PKG-CONTENT-011`：实现 MAY 在本地使用 reflink、copy-on-write 或其他透明优化，但 portable semantics MUST 等价于独立可读取的 object bytes；不得依赖 symlink/hardlink 才能恢复历史。
+`PKG-CONTENT-011`：实现 MAY 在本地使用 reflink、copy-on-write 或其他透明优化，但 portable semantics MUST 等价于独立可读取的 object bytes；MUST NOT 依赖 symlink/hardlink 才能恢复历史。
 
 ## 3. Complete Profile
 
@@ -37,7 +37,7 @@ Committed Version 的内容 bytes 使用 ContentID 去重保存于 Package porta
 
 Package Protocol 不认识特定 Provider；Host 通过 Content Resolver 提供 bytes。
 
-`PKG-CONTENT-030`：Exporter MUST 以 ContentID 为请求边界，不得要求 Package Core 了解 Google Drive、OneDrive、Dropbox、S3 或 NAS API。
+`PKG-CONTENT-030`：Exporter MUST 以 ContentID 为请求边界，MUST NOT 要求 Package Core 了解 Google Drive、OneDrive、Dropbox、S3 或 NAS API。
 
 `PKG-CONTENT-031`：远端 bytes MAY 直接流入 export staging；它们不必先永久写入 Packtell 本地 managed store。
 
@@ -52,3 +52,5 @@ Package Protocol 不认识特定 Provider；Host 通过 Content Resolver 提供 
 `PKG-CONTENT-040`：Complete Profile MAY 记录原 Provider、object ID、revision 与 first-observed facts 作为 provenance，但这些字段 MUST NOT 成为打开/恢复 Package 的运行时依赖。
 
 `PKG-CONTENT-041`：Credential-bearing URL、OAuth token、refresh token、signed URL 与 secret MUST NOT 进入 Package。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

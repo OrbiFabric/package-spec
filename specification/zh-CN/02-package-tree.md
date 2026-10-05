@@ -29,7 +29,7 @@ My Package/
 
 `PKG-TREE-002`：用户 payload MUST NOT 被强制放入 `files/`、`data/` 等额外包装目录。
 
-`PKG-TREE-003`：位于子目录中的同名 `.packtell` MAY 被当作普通用户目录；它不得改变外层 Package 的 control authority。
+`PKG-TREE-003`：位于子目录中的同名 `.packtell` MAY 被当作普通用户目录；它 MUST NOT 改变外层 Package 的 control authority。
 
 ## 2. `format.json`
 
@@ -39,12 +39,23 @@ My Package/
 
 ```json
 {
-  "schema": "orbifabric.package.format.v2",
+  "extensions": [],
+  "optional_capabilities": [
+    "orbifabric.package.capability.delivery-evidence.v1",
+    "orbifabric.package.capability.version-signature.v1"
+  ],
+  "profiles": [
+    "orbifabric.package.profile.complete.v1"
+  ],
   "protocol": "orbifabric.package",
   "protocol_version": "2.0",
-  "tree_profile": "orbifabric.package-tree.v1",
-  "profiles": ["orbifabric.package.profile.complete.v1"],
-  "capabilities": []
+  "required_capabilities": [
+    "orbifabric.package.capability.content-sha256.v1",
+    "orbifabric.package.capability.linear-history.v1",
+    "orbifabric.package.capability.portable-memory.v1"
+  ],
+  "schema": "orbifabric.package.format.v2",
+  "tree_profile": "orbifabric.package-tree.v1"
 }
 ```
 
@@ -69,3 +80,5 @@ My Package/
 `PKG-TREE-030`：Host UI SHOULD 在普通用户视图中隐藏 `.packtell/`，但“是否可见” MUST NOT 成为协议正确性条件。
 
 `PKG-TREE-031`：Windows Host MAY 设置 Hidden attribute；解压工具是否保留该 attribute 不影响 Package validity。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

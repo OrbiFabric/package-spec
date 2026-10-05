@@ -62,3 +62,5 @@ Standard signer types include at least:
 `PKG-SIGN-041`: Cloud Anchor/Witness MAY be created after the Version and MUST NOT change Version identity.
 
 `PKG-SIGN-042`: A Verifier SHOULD distinguish local/unregistered signer, cloud-registered/official signer, unknown signer, invalid signature, and online status.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

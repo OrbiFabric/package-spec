@@ -6,7 +6,7 @@ Status: Draft / Normative
 
 `PKG-DELIVERY-001`: A Delivery MUST reference a specific `package_id` and `package_version_id`; Delivery MUST NOT define Package or Version identity.
 
-`PKG-DELIVERY-002`: One PackageVersion MAY have multiple Deliveries, each with an independent `delivery_id`.
+`PKG-DELIVERY-002`: One PackageVersion MAY have multiple Deliveries, each of which MUST have an independent `delivery_id`.
 
 `PKG-DELIVERY-003`: A formal Delivery MUST reference a verifiable signed Version Subject; a Dirty Working Tree MUST first become a new committed Version.
 
@@ -15,14 +15,14 @@ Status: Draft / Normative
 A Complete Profile MAY store:
 
 ```text
-.packtell/evidence/deliveries/<delivery-id>/
-├── delivery.json
-├── record.json                 # optional
-├── receipt.json                # optional
-└── verification.json           # optional cached/result facts
+.packtell/evidence/
+├── deliveries/<delivery_id>/delivery.json
+└── objects/<evidence_id>.json
 ```
 
-`PKG-DELIVERY-010`: `delivery.json` SHOULD preserve portable business facts such as recipient, purpose, channel, and time while avoiding unnecessary secrets and credentials.
+[Exact contract](10-implementation-contracts.md): `PKG-CONTRACT-015`; verifier caches are not portable facts.
+
+`PKG-DELIVERY-010`: `delivery.json` SHOULD preserve portable business facts such as recipient, purpose, channel, and time and MUST avoid unnecessary secrets and credentials.
 
 `PKG-DELIVERY-011`: A signature used by a Delivery to prove the Package MUST ultimately reference/verify the Version Seal of the PackageVersion being delivered; it MUST NOT replace the Version Subject by signing ZIP bytes.
 
@@ -43,3 +43,5 @@ A Complete Profile MAY store:
 `PKG-DELIVERY-031`: Evidence objects SHOULD identify issuer, subject reference, created/observed time, schema, signature/key metadata, and an optional status reference.
 
 `PKG-DELIVERY-032`: Missing or deleted Evidence MUST NOT automatically turn already-passing local content integrity into failure; a Verifier must report dimensions separately.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

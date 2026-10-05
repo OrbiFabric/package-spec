@@ -1,5 +1,36 @@
-# Fixtures / 测试 Package
+# fixtures / 机器资产索引
 
-本目录保存语言无关的合法/非法 Package Tree fixtures。Fixture 不得包含真实用户数据、credential、生产密钥或私密来源信息。
+Scenarios encode paths and raw bytes as data, including intentionally unsafe paths. Never materialize negative paths before preflight.
 
-Planned cases: `minimal-valid`, `complete-history`, `dirty-working-tree`, `renamed-file`, `modified-file`, `missing-object`, `unknown-extension`, `bad-signature`, `path-traversal`, `case-conflict`, `cloud-origin`, `multi-delivery`.
+Authority: [中文](../specification/zh-CN/10-implementation-contracts.md) / [English](../specification/en/10-implementation-contracts.md).
+
+- [bad-signature.json](bad-signature.json)
+- [case-conflict.json](case-conflict.json)
+- [cloud-origin-provenance.json](cloud-origin-provenance.json)
+- [complete-history.json](complete-history.json)
+- [cycle.json](cycle.json)
+- [detached-version.json](detached-version.json)
+- [dirty-working-tree.json](dirty-working-tree.json)
+- [invalid-head-crlf.json](invalid-head-crlf.json)
+- [later-evidence-append.json](later-evidence-append.json)
+- [minimal-valid.json](minimal-valid.json)
+- [missing-object.json](missing-object.json)
+- [missing-parent.json](missing-parent.json)
+- [modified-file.json](modified-file.json)
+- [moved-file.json](moved-file.json)
+- [multi-delivery.json](multi-delivery.json)
+- [multiple-parents.json](multiple-parents.json)
+- [multiple-roots.json](multiple-roots.json)
+- [object-hash-mismatch.json](object-hash-mismatch.json)
+- [path-traversal.json](path-traversal.json)
+- [renamed-file.json](renamed-file.json)
+- [unborn.json](unborn.json)
+- [unicode-normalization-conflict.json](unicode-normalization-conflict.json)
+- [unknown-optional-extension.json](unknown-optional-extension.json)
+- [unknown-required-capability.json](unknown-required-capability.json)
+- [valid-signature.json](valid-signature.json)
+- [zip-duplicate.json](zip-duplicate.json)
+- [zip-traversal.json](zip-traversal.json)
+- [zip-unwrapped.json](zip-unwrapped.json)
+- [zip-wrapped.json](zip-wrapped.json)
+- [core-minimal.json](core-minimal.json)
