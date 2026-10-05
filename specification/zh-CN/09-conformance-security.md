@@ -37,7 +37,7 @@
 
 ## 4. Forward compatibility
 
-`PKG-CONF-030`：未知 Protocol major MUST 返回 unsupported，不得猜测解析。
+`PKG-CONF-030`：未知 Protocol major MUST 返回 unsupported，MUST NOT 猜测解析。
 
 `PKG-CONF-031`：同 major 内未知 optional field SHOULD 被忽略但在可能时 preserve；unknown required capability MUST fail closed。
 
@@ -48,3 +48,5 @@
 `PKG-CONF-040`：Protocol migration event MUST 与 PackageVersion 业务版本分离；仅协议结构升级且 logical state 不变时 SHOULD NOT 创建新的业务 PackageVersion。
 
 `PKG-CONF-041`：从 2.x 升级到未来 major 时，任何 destructive migration MUST 由新 major 的独立规范定义；2.0 不预授权静默破坏历史。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

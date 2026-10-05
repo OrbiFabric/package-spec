@@ -1,7 +1,7 @@
-# Profiles / Profile 定义
+# profiles / 机器资产索引
 
-首个正式 Profile：`orbifabric.package.profile.complete.v1`。
+Complete requires offline coverage of every committed Version, including HEAD objects.
 
-Complete Profile guarantees self-contained reconstruction of every committed Version plus portable metadata/history without the original device, Cloud, provider, or Packtell database.
+Authority: [中文](../specification/zh-CN/10-implementation-contracts.md) / [English](../specification/en/10-implementation-contracts.md).
 
-未来 Thin/Domain-specific profiles 必须使用独立标识，不得冒充 Complete。
+- [complete.v1.json](complete.v1.json)

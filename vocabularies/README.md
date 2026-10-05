@@ -1,5 +1,7 @@
-# Vocabularies / 协议词汇表
+# vocabularies / 机器资产索引
 
-用于维护稳定枚举与可扩展 vocabulary，例如 event types、source kinds、signer types、capabilities、profiles、verification states。
+Stable initial vocabulary; unknown required capability fails closed.
 
-This directory maintains stable and extensible vocabularies such as event types, source kinds, signer types, capabilities, profiles, and verification states.
+Authority: [中文](../specification/zh-CN/10-implementation-contracts.md) / [English](../specification/en/10-implementation-contracts.md).
+
+- [core.v2.json](core.v2.json)

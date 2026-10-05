@@ -53,3 +53,5 @@ Package 2.0 follows a small-Core-plus-Profile model.
 ## 5. Non-goals
 
 Package 2.0 Core does not define Packtell UI, Space/Family/Organization permissions, Cloud billing, OAuth, Provider APIs, search indexes, AI/MCP, collaboration chat, task management, or general file-manager behavior. Those systems may consume the protocol but cannot redefine Core semantics.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

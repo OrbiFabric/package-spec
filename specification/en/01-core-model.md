@@ -50,10 +50,12 @@ Minimum conceptual shape:
 
 ```json
 {
-  "schema": "orbifabric.package.package.v2",
-  "package_id": "<uuid-v7>",
-  "created_at": "2026-10-04T21:00:00.000000Z"
+  "created_at": "2026-10-05T00:00:00.000000Z",
+  "package_id": "019a0000-0000-7000-8000-000000000001",
+  "schema": "orbifabric.package.package.v2"
 }
 ```
 
 `PKG-CORE-140`: `package.json` MUST NOT contain OAuth tokens, credentials, OS Keyring references, absolute local paths, Cloud sessions, or internal database row IDs.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

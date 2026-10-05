@@ -59,6 +59,7 @@ My Package/
 | 07 | [Delivery / Evidence](specification/zh-CN/07-delivery-evidence.md) | [Delivery / Evidence](specification/en/07-delivery-evidence.md) |
 | 08 | [Container Codecs](specification/zh-CN/08-container-codecs.md) | [Container Codecs](specification/en/08-container-codecs.md) |
 | 09 | [Conformance / Security](specification/zh-CN/09-conformance-security.md) | [Conformance / Security](specification/en/09-conformance-security.md) |
+| 10 | [实施合同](specification/zh-CN/10-implementation-contracts.md) | [Implementation contracts](specification/en/10-implementation-contracts.md) |
 
 治理与权威：[SPEC-AUTHORITY.md](SPEC-AUTHORITY.md) · [English](SPEC-AUTHORITY.en.md)  
 1.x Clean Break：[MIGRATION-1X-CLEAN-BREAK.md](MIGRATION-1X-CLEAN-BREAK.md) · [English](MIGRATION-1X-CLEAN-BREAK.en.md)
@@ -72,7 +73,7 @@ My Package/
 - [`vectors/`](vectors/) — canonicalization/hash/signature golden vectors
 - [`conformance/`](conformance/) — cross-language expected results
 
-字段冻结后再补具体 Schema/vector，避免代码先于规范成为事实标准。
+实施字段与共享测试资产已在第 10 章冻结。运行 `python3 conformance/check.py` 检查仓库一致性；该检查不构成 SDK conformance 声明。
 
 ## Reference Implementation
 
@@ -85,3 +86,7 @@ Authority 顺序是规范 → Schema → canonical/crypto algorithm → vectors 
 本仓库采用 **Apache License 2.0**。
 
 除非文件另有明确说明，本仓库中的规范、Schema、测试向量、Fixture、示例及其他内容均按 Apache License 2.0 授权。详情见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
+
+## Local consistency / 本地一致性
+
+Python 3.11+ with `jsonschema` 4.18+ and `cryptography` 41+: `python3 conformance/check.py`. No SDK or network is used.

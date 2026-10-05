@@ -14,11 +14,11 @@ metadata/
 └── provenance.json
 ```
 
-`PKG-META-001`：Portable metadata MUST 表达 Package 语义，不得作为 Packtell SQLite/ORM 结构的序列化镜像。
+`PKG-META-001`：Portable metadata MUST 表达 Package 语义，MUST NOT 作为 Packtell SQLite/ORM 结构的序列化镜像。
 
-`PKG-META-002`：Notes MUST 使用稳定 `note_id`；修改 Note 不得通过删除旧字符串再创建无关联字符串来伪装。
+`PKG-META-002`：Notes MUST 使用稳定 `note_id`；修改 Note MUST NOT 通过删除旧字符串再创建无关联字符串来伪装。
 
-`PKG-META-003`：Tags SHOULD 使用规范化文本值；实现 MAY 为 tag 提供稳定 ID，但不得要求某个 Packtell 数据库 ID。
+`PKG-META-003`：Tags SHOULD 使用规范化文本值；实现 MAY 为 tag 提供稳定 ID，但 MUST NOT 要求某个 Packtell 数据库 ID。
 
 ## 2. Portable domain history
 
@@ -30,7 +30,7 @@ metadata/
 
 `PKG-META-011`：Portable events MUST NOT 包含 UI 点击、cache rebuild、worker lease、sync retry、telemetry、临时下载 job、绝对本地路径或 credential。
 
-`PKG-META-012`：Version manifest 是 Version state authority；events 用于解释 chronology，不得要求 replay events 才能恢复 committed Version。
+`PKG-META-012`：Version manifest 是 Version state authority；events 用于解释 chronology，MUST NOT 要求 replay events 才能恢复 committed Version。
 
 `PKG-META-013`：未知 optional event type MUST 可原样保留；Reader MAY 以 generic event 展示而不理解其业务语义。
 
@@ -53,3 +53,5 @@ metadata/
 `PKG-META-031`：未知 optional extension MUST 可被 preserve-through-read/write，除非用户明确要求删除。
 
 `PKG-META-032`：Extension MUST NOT 覆盖 Core path、伪造 Core schema 或要求 Reader 执行未信任代码才能读取 Core Package。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

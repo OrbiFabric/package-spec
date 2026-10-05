@@ -39,12 +39,23 @@ Recommended fields:
 
 ```json
 {
-  "schema": "orbifabric.package.format.v2",
+  "extensions": [],
+  "optional_capabilities": [
+    "orbifabric.package.capability.delivery-evidence.v1",
+    "orbifabric.package.capability.version-signature.v1"
+  ],
+  "profiles": [
+    "orbifabric.package.profile.complete.v1"
+  ],
   "protocol": "orbifabric.package",
   "protocol_version": "2.0",
-  "tree_profile": "orbifabric.package-tree.v1",
-  "profiles": ["orbifabric.package.profile.complete.v1"],
-  "capabilities": []
+  "required_capabilities": [
+    "orbifabric.package.capability.content-sha256.v1",
+    "orbifabric.package.capability.linear-history.v1",
+    "orbifabric.package.capability.portable-memory.v1"
+  ],
+  "schema": "orbifabric.package.format.v2",
+  "tree_profile": "orbifabric.package-tree.v1"
 }
 ```
 
@@ -69,3 +80,5 @@ Recommended fields:
 `PKG-TREE-030`: Host UI SHOULD hide `.packtell/` from ordinary user views, but visibility MUST NOT be a validity condition.
 
 `PKG-TREE-031`: A Windows Host MAY set the Hidden attribute; whether an extraction tool preserves that attribute does not affect Package validity.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

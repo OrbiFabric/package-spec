@@ -4,7 +4,7 @@
 
 ## 1. 原则
 
-`PKG-CODEC-001`：Container Codec MUST 是 Package Tree 的编码层，不得拥有独立 Package identity。
+`PKG-CODEC-001`：Container Codec MUST 是 Package Tree 的编码层，MUST NOT 拥有独立 Package identity。
 
 `PKG-CODEC-002`：将同一个 Package Tree 编码成 Directory、ZIP 或 TAR MUST 保持 PackageID、PackageVersionID、Version Subject 与 portable history 不变。
 
@@ -33,7 +33,7 @@ My Package.zip
 
 `PKG-CODEC-022`：ZIP Reader MUST 拒绝 traversal、绝对路径、重复 normalized path、case/Unicode collision、symlink/special entry、未支持 encryption 与不安全结构。
 
-`PKG-CODEC-023`：ZIP writer MAY 使用 STORE/DEFLATE/Zip64；具体压缩方法不得改变 logical digest。
+`PKG-CODEC-023`：ZIP writer MAY 使用 STORE/DEFLATE/Zip64；具体压缩方法 MUST NOT 改变 logical digest。
 
 ## 4. TAR/RAR/未来容器
 
@@ -44,3 +44,5 @@ My Package.zip
 ## 5. Direct streaming implementation
 
 `PKG-CODEC-040`：实现 MAY 直接把同一 Package Tree plan 流式写入 ZIP/TAR，而不先物化临时目录；只要逻辑结果与 Directory Codec 一致。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

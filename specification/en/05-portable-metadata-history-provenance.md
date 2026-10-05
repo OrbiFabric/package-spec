@@ -53,3 +53,5 @@ Recommended source kinds include `local_import`, `package_import`, `google_drive
 `PKG-META-031`: Unknown optional extensions MUST support preserve-through-read/write unless the user explicitly requests deletion.
 
 `PKG-META-032`: Extensions MUST NOT override Core paths, impersonate Core schemas, or require execution of untrusted code in order to read the Core Package.
+
+[Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.

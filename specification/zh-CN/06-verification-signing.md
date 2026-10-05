@@ -16,7 +16,7 @@ Package 2.0 复用 `orbifabric.canonical-json.v1`。
 
 `PKG-SIGN-010`：Canonical JSON MUST 使用 UTF-8、无 BOM、无多余空白；object keys 递归按 Unicode code point 对应 UTF-8 byte lexical order 排序；strings 不进行 HTML escaping；禁止 NaN/Infinity 与 identity-critical float。
 
-`PKG-SIGN-011`：所有签名 subject MUST 使用 domain-separated、versioned subject schema；实现不得直接签任意 UI JSON。
+`PKG-SIGN-011`：所有签名 subject MUST 使用 domain-separated、versioned subject schema；实现 MUST NOT 直接签任意 UI JSON。
 
 ## 3. Version Subject
 
@@ -57,8 +57,10 @@ Package 2.0 延续 OrbiPack/Packtell 已有 `PackageSigner` 抽象。
 
 ## 5. Trust separation
 
-`PKG-SIGN-040`：Version Signature、Cloud Anchor、Delivery Record/Receipt、Lifecycle Witness MUST 是不同 schema/subject，不得合并成单一“valid”布尔值。
+`PKG-SIGN-040`：Version Signature、Cloud Anchor、Delivery Record/Receipt、Lifecycle Witness MUST 是不同 schema/subject，MUST NOT 合并成单一“valid”布尔值。
 
 `PKG-SIGN-041`：Cloud Anchor/Witness MAY 晚于 Version 创建，且 MUST NOT 改变 Version identity。
 
 `PKG-SIGN-042`：Verifier SHOULD 区分 local/unregistered signer、cloud-registered/official signer、unknown signer、invalid signature 与 online status。
+
+[实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。

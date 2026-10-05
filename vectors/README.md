@@ -1,5 +1,7 @@
-# Vectors / 密码学与 Canonicalization 向量
+# vectors / 机器资产索引
 
-本目录保存跨语言 golden vectors：canonical JSON、SHA-256、Version Subject、Ed25519 signature、Cloud evidence subject 等。
+TEST ONLY — NEVER PRODUCTION. Fixed Ed25519 seed is public test data. Golden bytes are independent of package-go and Packtell.
 
-All implementations MUST produce/verify the same expected byte-level results for normative vectors. Test keys are public fixtures only and MUST never be production secrets.
+Authority: [中文](../specification/zh-CN/10-implementation-contracts.md) / [English](../specification/en/10-implementation-contracts.md).
+
+- [crypto.v2.json](crypto.v2.json)
