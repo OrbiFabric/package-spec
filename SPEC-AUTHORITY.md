@@ -1,7 +1,7 @@
-# Package 2.0 规范权威、语言与变更规则
+# Package 2.1 规范权威、语言与变更规则
 
 状态：Draft / Normative Governance  
-适用：OrbiFabric Package Protocol 2.0 及其子规范
+适用：OrbiFabric Package Protocol 2.x（当前规范发布 2.1）及其子规范
 
 ## 1. 规范关键词
 
@@ -50,6 +50,7 @@
 - `PKG-CODEC-*`
 - `PKG-CONF-*`
 - `PKG-GOV-*`
+- `PKG-STORAGE-*`（2.1 可选存储服务扩展）
 
 已公开的 Clause ID 不因排版或章节移动而复用给不同语义。
 
@@ -71,3 +72,9 @@
 `PKG-GOV-030`：Package Protocol 不依赖 Packtell、Wails、SQLite、OrbiFabric Cloud 或任何单一语言。  
 `PKG-GOV-031`：`package-go` 是 Reference Implementation，不是协议权威来源。  
 `PKG-GOV-032`：不同语言 SDK 必须依据本规范与同一套 conformance assets 独立实现。
+
+## 8. 2.1 兼容性增补与可选服务
+
+`PKG-GOV-033`：2.1 的可选 Cloud 存储架构 **MUST NOT** 引入对 Cloud/Provider 的 Package Core 依赖，或静默改变现有 `protocol_version="2.0"` 文件、Version Subject、schema、签名与 conformance 的字节语义。
+
+`PKG-GOV-034`：新增 Storage 服务 **MUST** 保持 Control Plane 与可选 Managed/BYO Data Plane 的明确边界；托管备份位于实际 Provider，不等于在控制面持久化用户实体。服务 API 与便携协议应分别版本化。参见 [第 11 章](specification/zh-CN/11-storage-control-plane.md)。

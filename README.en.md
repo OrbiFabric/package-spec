@@ -1,9 +1,9 @@
-# OrbiFabric Package Protocol 2.0
+# OrbiFabric Package Protocol 2.1
 
 > **Official bilingual specification · Chinese is the primary normative natural-language text**  
 > 中文：[README.md](README.md)
 
-This repository defines **OrbiFabric Package Protocol 2.0**: a portable Package object that can exist independently of Packtell and can be read, written, verified, imported, exported, and reconstructed by independent implementations.
+This repository defines **OrbiFabric Package Protocol 2.1** (compatible with the existing 2.0 portable format): a portable Package object that can exist independently of Packtell and can be read, written, verified, imported, exported, and reconstructed by independent implementations.
 
 ```text
 My Package/
@@ -34,11 +34,17 @@ My Package/
 - Packtell uses a local Ed25519 package signer when no Cloud official signer is available; when a connected OrbiFabric official signer is selected, the Cloud/official signer signs the same subject. Cloud Anchor, Delivery Receipt, and Lifecycle Witness remain distinct evidence objects.
 - Directory is the foundational materialization; ZIP/TAR/RAR/future native containers are codecs for the same Package Tree.
 - Packtell is a reference consumer product, not a prerequisite for the protocol.
+- **2.1 adds an optional storage architecture**: Cloud is the control plane and may later coordinate replaceable managed storage providers and issue time-limited direct transfer grants; user-owned backup remains available, with Dropbox the only V1 backup destination. No user bytes in the Cloud control plane does not prohibit a future Cloud-managed data plane.
+
+## 2.1 compatibility with existing 2.0 files
+
+**2.1 is an optional storage/recovery service specification supplement, not an upgrade of the current portable wire format.** This change preserves `.packtell/format.json` with `protocol_version="2.0"`, Package Tree, schemas, Version Subjects, signatures, conformance assets, and the existing `package-go` 2.0 byte contract. Offline Complete Packages are unaffected. See [chapter 11](specification/en/11-storage-control-plane.md).
 
 ## Status
 
 - Status: **Draft / Pre-release**
-- Target protocol: **`orbifabric.package` / `2.0`**
+- Specification release: **2.1** (optional storage-service supplement)
+- Portable format protocol: **`orbifabric.package` / `2.0`** (unchanged)
 - Tree profile: **`orbifabric.package-tree.v1`**
 - Default Packtell export profile: **`orbifabric.package.profile.complete.v1`**
 - Package 1.x: **unreleased development protocol; no compatibility, migration, old-data retention, or production legacy runtime.**
@@ -58,6 +64,7 @@ My Package/
 | 08 | [Container Codecs](specification/zh-CN/08-container-codecs.md) | [Container Codecs](specification/en/08-container-codecs.md) |
 | 09 | [Conformance / Security](specification/zh-CN/09-conformance-security.md) | [Conformance / Security](specification/en/09-conformance-security.md) |
 | 10 | [实施合同](specification/zh-CN/10-implementation-contracts.md) | [Implementation contracts](specification/en/10-implementation-contracts.md) |
+| 11 | [可选存储与 Cloud 控制面](specification/zh-CN/11-storage-control-plane.md) | [Optional Storage and Cloud Control Plane](specification/en/11-storage-control-plane.md) |
 
 Authority and governance: [SPEC-AUTHORITY.en.md](SPEC-AUTHORITY.en.md) · [中文](SPEC-AUTHORITY.md)  
 1.x clean break: [MIGRATION-1X-CLEAN-BREAK.en.md](MIGRATION-1X-CLEAN-BREAK.en.md) · [中文](MIGRATION-1X-CLEAN-BREAK.md)
