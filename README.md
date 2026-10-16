@@ -1,9 +1,9 @@
-# OrbiFabric Package Protocol 2.0
+# OrbiFabric Package Protocol 2.1
 
 > **中文主规范 · Official bilingual specification**  
 > English: [README.en.md](README.en.md)
 
-本仓库定义 **OrbiFabric Package Protocol 2.0**：一种可脱离 Packtell 独立存在、可被不同实现读写、验证、导入、导出和长期保存历史的通用 Package 对象。
+本仓库定义 **OrbiFabric Package Protocol 2.1**（兼容既有 2.0 portable 格式）：一种可脱离 Packtell 独立存在、可被不同实现读写、验证、导入、导出和长期保存历史的通用 Package 对象。
 
 Package 2.0 的核心结构非常简单：
 
@@ -36,11 +36,17 @@ My Package/
 - Packtell 默认无 Cloud 时使用本机 Ed25519 package signer；连接并选择 OrbiFabric official signer 时使用 Cloud/official signer。Cloud Anchor、Delivery Receipt、Lifecycle Witness 是不同证据对象。
 - Directory 是基础物化；ZIP/TAR/RAR/未来专有容器只是同一 Package Tree 的 codecs。
 - Packtell 是参考消费产品，不是协议成立的前提。
+- **2.1 新增可选存储架构**：Cloud 是控制面，未来可协调多供应商托管数据面，并为客户端签发限时直传授权；用户自带云盘备份继续存在，V1 只有 Dropbox 备份。Cloud 控制面不保存或中继文件实体，不意味着 Cloud 产品以后永远不能提供托管实体备份。
+
+## 2.1 与现有 2.0 文件兼容
+
+**2.1 是可选存储与恢复架构的规范增补，不是当前 portable wire 格式的升级。** 本次保留现有 `.packtell/format.json` 中 `protocol_version="2.0"`、Package Tree、Schema、Version Subject、签名与 conformance assets；既有 `package-go` 的 2.0 字节合同不变。新增服务不影响离线 Complete Package。详见 [第 11 章](specification/zh-CN/11-storage-control-plane.md)。
 
 ## 状态
 
 - Status: **Draft / Pre-release**
-- Target protocol: **`orbifabric.package` / `2.0`**
+- Specification release: **2.1**（可选存储服务增补）
+- Portable format protocol: **`orbifabric.package` / `2.0`**（保持不变）
 - Tree profile: **`orbifabric.package-tree.v1`**
 - Default Packtell export profile: **`orbifabric.package.profile.complete.v1`**
 - Package 1.x: **未发布开发期协议；不兼容、不迁移、不保留旧数据或 production legacy runtime。**
@@ -60,6 +66,7 @@ My Package/
 | 08 | [Container Codecs](specification/zh-CN/08-container-codecs.md) | [Container Codecs](specification/en/08-container-codecs.md) |
 | 09 | [Conformance / Security](specification/zh-CN/09-conformance-security.md) | [Conformance / Security](specification/en/09-conformance-security.md) |
 | 10 | [实施合同](specification/zh-CN/10-implementation-contracts.md) | [Implementation contracts](specification/en/10-implementation-contracts.md) |
+| 11 | [可选存储与 Cloud 控制面](specification/zh-CN/11-storage-control-plane.md) | [Optional Storage and Cloud Control Plane](specification/en/11-storage-control-plane.md) |
 
 治理与权威：[SPEC-AUTHORITY.md](SPEC-AUTHORITY.md) · [English](SPEC-AUTHORITY.en.md)  
 1.x Clean Break：[MIGRATION-1X-CLEAN-BREAK.md](MIGRATION-1X-CLEAN-BREAK.md) · [English](MIGRATION-1X-CLEAN-BREAK.en.md)

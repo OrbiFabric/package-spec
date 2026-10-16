@@ -1,12 +1,12 @@
-# OrbiFabric Package Protocol 2.0：概览与术语
+# OrbiFabric Package Protocol 2.1：概览与术语
 
 状态：Draft / Normative  
 语言：中文主规范  
-协议：`orbifabric.package` / `2.0`
+规范版本：`2.1`；portable format discriminator：`orbifabric.package` / `2.0`（保持不变）
 
 ## 1. 范围
 
-Package 2.0 定义一种可移植、可验证、可长期演进的数字材料对象。Package 可以脱离 Packtell、OrbiFabric Cloud、特定数据库和特定编程语言独立存在。
+Package 2.1 继续采用 2.0 已冻结的 Core 与 portable 格式，定义可移植、可验证、可长期演进的数字材料对象。Package 可以脱离 Packtell、OrbiFabric Cloud、特定数据库和特定编程语言独立存在。
 
 `PKG-CORE-001`：Package MUST 拥有稳定 `package_id`，并且该身份 MUST NOT 由文件路径、容器文件名、ZIP 字节摘要、Cloud 记录或当前设备决定。
 
@@ -36,7 +36,7 @@ Package 2.0 定义一种可移植、可验证、可长期演进的数字材料�
 
 ## 3. Profile
 
-Package 2.0 使用“小 Core + Profile”模型。
+Package 2.x 使用“小 Core + Profile”模型。
 
 `PKG-CORE-010`：Core Reader/Writer MAY 只实现最低 Package 语义，不要求实现 Packtell 全部产品能力。
 
@@ -52,6 +52,12 @@ Package 2.0 使用“小 Core + Profile”模型。
 
 ## 5. 非目标
 
-Package 2.0 Core 不定义：Packtell UI、Space/Family/Organization 权限、Cloud 计费、OAuth、Provider API、搜索索引、AI/MCP、协作聊天、任务管理或通用文件管理器行为。这些系统可以消费 Package Protocol，但不能改变 Core 语义。
+Package 2.x Core 不定义：Packtell UI、Space/Family/Organization 权限、Cloud 计费、OAuth、Provider API、搜索索引、AI/MCP、协作聊天、任务管理或通用文件管理器行为。这些系统可以消费 Package Protocol，但不能改变 Core 语义。
 
 [实施精确合同](10-implementation-contracts.md)将本章概念冻结为字段、字节和关系约束。
+
+## 6. 2.1 可选存储扩展
+
+2.1 在产品服务层新增[可选存储与 Cloud 控制面](11-storage-control-plane.md)：OrbiFabric Cloud 的控制面负责账号/权益/位置/授权/任务；未来托管实体可以存储于可更换的多家 Provider 数据面，由客户端获得限时、最小权限的直传授权。用户自带备份可并存；Packtell V1 仅开放 Dropbox BYO 备份。
+
+本章不把远端位置加入 Core 身份或 Complete Profile 离线成立条件，也不把协议字段 `protocol_version` 自动升级至 `2.1`。现有 [2.0 字节/Schema/签名合同](10-implementation-contracts.md)继续有效。

@@ -1,4 +1,4 @@
-# Package 2.0 Specification Authority, Language, and Change Rules
+# Package 2.1 Specification Authority, Language, and Change Rules
 
 Status: Draft / Normative Governance
 
@@ -29,7 +29,7 @@ An implementation conflict is an implementation bug, not an automatic specificat
 
 ## 4. Clause IDs
 
-Stable namespaces include `PKG-CORE-*`, `PKG-TREE-*`, `PKG-VERSION-*`, `PKG-CONTENT-*`, `PKG-META-*`, `PKG-SIGN-*`, `PKG-DELIVERY-*`, `PKG-CODEC-*`, `PKG-CONF-*`, and `PKG-GOV-*`.
+Stable namespaces include `PKG-CORE-*`, `PKG-TREE-*`, `PKG-VERSION-*`, `PKG-CONTENT-*`, `PKG-META-*`, `PKG-SIGN-*`, `PKG-DELIVERY-*`, `PKG-CODEC-*`, `PKG-CONF-*`, `PKG-GOV-*`, and `PKG-STORAGE-*` (optional 2.1 storage-service extension).
 
 ## 5. Version governance
 
@@ -49,3 +49,9 @@ Stable namespaces include `PKG-CORE-*`, `PKG-TREE-*`, `PKG-VERSION-*`, `PKG-CONT
 `PKG-GOV-030`: The protocol MUST NOT depend on Packtell, Wails, SQLite, OrbiFabric Cloud, or one programming language.  
 `PKG-GOV-031`: `package-go` is a reference implementation, not the normative source.  
 `PKG-GOV-032`: Other language SDKs MUST implement against this specification and the shared conformance assets.
+
+## 8. 2.1 compatibility supplement and optional services
+
+`PKG-GOV-033`: The optional 2.1 Cloud storage architecture **MUST NOT** introduce a Cloud/Provider dependency for Package Core or silently alter byte semantics of existing `protocol_version="2.0"` files, Version Subjects, schemas, signatures, or conformance.
+
+`PKG-GOV-034`: New Storage services **MUST** distinguish Control Plane from optional Managed/BYO Data Planes; managed backups reside at actual providers, not as persistent user bytes in the control plane. Service APIs and the portable protocol are separately versioned. See [chapter 11](specification/en/11-storage-control-plane.md).

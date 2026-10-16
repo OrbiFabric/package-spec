@@ -1,12 +1,12 @@
-# OrbiFabric Package Protocol 2.0: Overview and Terminology
+# OrbiFabric Package Protocol 2.1: Overview and Terminology
 
 Status: Draft / Normative  
 Language: Official English translation  
-Protocol: `orbifabric.package` / `2.0`
+Specification release: `2.1`; portable format discriminator: `orbifabric.package` / `2.0` (unchanged)
 
 ## 1. Scope
 
-Package 2.0 defines a portable, verifiable, long-lived digital-material object. A Package can exist independently of Packtell, OrbiFabric Cloud, any database, and any programming language.
+Package 2.1 retains the frozen 2.0 Core and portable format defining a verifiable, long-lived digital-material object. A Package can exist independently of Packtell, OrbiFabric Cloud, any database, and any programming language.
 
 `PKG-CORE-001`: A Package MUST have a stable `package_id`; that identity MUST NOT be derived from a file path, container filename, ZIP-byte digest, Cloud record, or current device.
 
@@ -36,7 +36,7 @@ Package 2.0 defines a portable, verifiable, long-lived digital-material object. 
 
 ## 3. Profiles
 
-Package 2.0 follows a small-Core-plus-Profile model.
+Package 2.x follows a small-Core-plus-Profile model.
 
 `PKG-CORE-010`: A Core Reader/Writer MAY implement only minimum Package semantics and is not required to implement all Packtell product capabilities.
 
@@ -52,6 +52,12 @@ Package 2.0 follows a small-Core-plus-Profile model.
 
 ## 5. Non-goals
 
-Package 2.0 Core does not define Packtell UI, Space/Family/Organization permissions, Cloud billing, OAuth, Provider APIs, search indexes, AI/MCP, collaboration chat, task management, or general file-manager behavior. Those systems may consume the protocol but cannot redefine Core semantics.
+Package 2.x Core does not define Packtell UI, Space/Family/Organization permissions, Cloud billing, OAuth, Provider APIs, search indexes, AI/MCP, collaboration chat, task management, or general file-manager behavior. Those systems may consume the protocol but cannot redefine Core semantics.
 
 [Exact implementation contracts](10-implementation-contracts.md) freeze this chapter’s concepts into field, byte and relational constraints.
+
+## 6. 2.1 optional storage extension
+
+2.1 adds an [optional storage and Cloud control-plane](11-storage-control-plane.md) service architecture: the OrbiFabric Cloud control plane coordinates accounts, entitlements, locations, authorization, and jobs; future managed byte backups can reside at replaceable vendors, with client direct transfer using short-lived, least-privilege grants. User-owned backup remains supported; Packtell V1 exposes only Dropbox BYO backup.
+
+Remote locations are not added to Core identity or the offline existence conditions of the Complete Profile. The portable `protocol_version` is not automatically changed to `2.1`; existing [2.0 byte/schema/signature contracts](10-implementation-contracts.md) remain in force.
