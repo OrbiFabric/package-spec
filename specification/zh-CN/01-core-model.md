@@ -38,7 +38,7 @@
 
 `PKG-CORE-130`：协议字符串使用 UTF-8；机器路径组件在进入 portable authority 前 MUST 经过 Unicode NFC normalization。
 
-`PKG-CORE-131`：Canonical timestamp MUST 使用 UTC RFC3339，格式 `YYYY-MM-DDThh:mm:ss.ffffffZ`。
+`PKG-CORE-131`：Canonical timestamp MUST 使用 UTC RFC3339，格式 `YYYY-MM-DDThh:mm:ss.ffffff+00:00`。
 
 `PKG-CORE-132`：协议 authority 中的计数、size、ordinal MUST 使用非负整数，MUST NOT 使用浮点数表达精确身份事实。
 
@@ -50,7 +50,7 @@
 
 ```json
 {
-  "created_at": "2026-10-05T00:00:00.000000Z",
+  "created_at": "2026-10-05T00:00:00.000000+00:00",
   "package_id": "019a0000-0000-7000-8000-000000000001",
   "schema": "orbifabric.package.package.v2"
 }
