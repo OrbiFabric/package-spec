@@ -1,6 +1,6 @@
 # Package Protocol 2.0 — Pre-release UTC timestamp clean break
 
-Founder approved 2026-10-25. STATUS: **NORMATIVE + 13 SCHEMAS UPDATED / GOLDEN FIXTURES PENDING / DO NOT MERGE**.
+Founder approved 2026-10-25. STATUS: **NORMATIVE + 13 SCHEMAS + GOLDEN ASSETS REBUILT / LOCAL CHECKER PASS / REVIEW AND NORMAL MERGE PENDING**.
 
 ## Canonical target
 
@@ -30,4 +30,6 @@ There is no historical Package or old client migration obligation under the Foun
 
 ## Honest status
 
-Only normative docs, 13 Schema patterns and schema time-format checker have been updated so far. Fixture embedded bytes and vectors are still old Z. Full conformance is therefore **REGENERATION_REQUIRED / NOT_PASS**, and this PR must remain DRAFT/UNMERGED until real regenerations and tests succeed.
+The original 30 fixtures (including four ZIP inputs) and Ed25519/digest vectors have now been rebuilt from the public TEST ONLY seed. Twelve additional invalid-time fixtures and 16 timestamp samples exercise all 17 date-time fields across 13 schemas. The local checker passes with 17 schemas, 42 fixtures, 203 paired clauses and 13 intentional schema rejections. Its original expectations, malformed archives and evidence append invariants are retained. A missing JSON Schema date-time dependency now fails closed. See [the checker instructions](conformance/README.md) for deterministic regeneration and required dependencies.
+
+This is repository-asset consistency evidence only. package-go reference conformance, downstream Cloud/Packtell/browser verifiers and real official Provider integration remain **NOT RUN** at this upstream stage. Independent review and an ordinary Merge Commit remain required before consumers adopt the new authority.
