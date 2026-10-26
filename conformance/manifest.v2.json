@@ -523,6 +523,48 @@
         "ZIP Codec"
       ],
       "sha256": "sha256:5fd796d956921e71b51ecd10d841ee08739d327e558190261402c450b883b715"
+    },
+    {
+      "id": "noncanonical-time-13",
+      "path": "../fixtures/noncanonical-time-13.json",
+      "levels": [
+        "Core Reader",
+        "Core Writer",
+        "Complete Reader",
+        "Complete Writer",
+        "Verifier",
+        "Directory Codec",
+        "ZIP Codec"
+      ],
+      "sha256": "sha256:1a97a4899ee997b680ade64bb8f9f5ad901217d77997bfa287ee62444b92f6d9"
+    },
+    {
+      "id": "noncanonical-time-14",
+      "path": "../fixtures/noncanonical-time-14.json",
+      "levels": [
+        "Core Reader",
+        "Core Writer",
+        "Complete Reader",
+        "Complete Writer",
+        "Verifier",
+        "Directory Codec",
+        "ZIP Codec"
+      ],
+      "sha256": "sha256:42eedda3d35f923df3aa6ae34bbed9635315c578beefc2b3321c742881366845"
+    },
+    {
+      "id": "noncanonical-time-15",
+      "path": "../fixtures/noncanonical-time-15.json",
+      "levels": [
+        "Core Reader",
+        "Core Writer",
+        "Complete Reader",
+        "Complete Writer",
+        "Verifier",
+        "Directory Codec",
+        "ZIP Codec"
+      ],
+      "sha256": "sha256:618c4502a3beed25ff635e05b67585115a09d182191bc417594a4fafed7f765c"
     }
   ],
   "vectors": [
