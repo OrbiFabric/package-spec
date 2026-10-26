@@ -187,7 +187,9 @@ def main():
     # Real consumer cases: invalidate only package.created_at in a valid tree.
     # Do not mutate any of the original 30 expected result objects.
     for index, timestamp in enumerate(vector['canonical_timestamps']['invalid'], 1):
-        fixture = parse((ROOT / 'fixtures/minimal-valid.json').read_bytes())
+        # A case assigned to Core levels must not require portable-memory;
+        # otherwise capability rejection precedes the timestamp under test.
+        fixture = parse((ROOT / 'fixtures/core-minimal.json').read_bytes())
         fixture['id'] = f'noncanonical-time-{index:02d}'
         for entry in fixture['input']['entries']:
             if entry['path'] == '.packtell/package.json':

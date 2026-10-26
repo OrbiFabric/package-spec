@@ -182,6 +182,19 @@ def main():
         require(bool(failures) == ('INVALID_SCHEMA' in f['expected']['reason_codes']), 'schema expectation ' + f['id'])
         schema_failures += len(failures)
     for name in manifest['vectors']: relative(ROOT / 'conformance', name)
+    # Time negatives apply at Core as well as Complete levels. Keep their
+    # inputs identical to core-minimal except the single invalid timestamp.
+    base = tree(fixtures['core-minimal'])
+    for index, timestamp in enumerate(v['canonical_timestamps']['invalid'], 1):
+        f = fixtures[f'noncanonical-time-{index:02d}']
+        t = tree(f)
+        require(t.keys() == base.keys(), 'timestamp fixture is not Core input')
+        require(all(raw == base[path] for path, raw in t.items() if path != '.packtell/package.json'),
+                'timestamp fixture changed unrelated Core facts')
+        package = parse(t['.packtell/package.json'])
+        require(package['created_at'] == timestamp, 'timestamp fixture sample mismatch')
+        package['created_at'] = parse(base['.packtell/package.json'])['created_at']
+        require(canonical(package) == base['.packtell/package.json'], 'timestamp fixture changed package facts')
     require(v['warning'] == 'TEST ONLY — NEVER PRODUCTION', 'test key warning')
     key = Ed25519PrivateKey.from_private_bytes(bytes.fromhex(v['seed_hex']))
     pub = key.public_key().public_bytes(Encoding.Raw, PublicFormat.Raw)
