@@ -114,6 +114,33 @@ def main():
         require(key in schemas, 'missing schema: ' + key)
         jsonschema.Draft202012Validator(schemas[key], registry=registry,
                                        format_checker=jsonschema.FormatChecker()).validate(doc)
+    # Pre-release timestamp clean break: all portable date-times are six UTC
+    # microseconds and literal +00:00, never the earlier Z spelling.
+    # JSON Schema's generic date-time format alone is insufficient.
+    def check_utc_patterns(node, location):
+        if isinstance(node, dict):
+            if node.get("format") == "date-time":
+                pattern = node.get("pattern")
+                require(isinstance(pattern, str), "missing canonical time pattern " + location)
+                rx = re.compile(pattern)
+                valid = "2026-10-25T12:34:56.123456+00:00"
+                require(rx.fullmatch(valid) is not None, "new UTC timestamp rejected " + location)
+                for invalid in [
+                    "2026-10-25T12:34:56.123456Z",
+                    "2026-10-25T12:34:56.123456-04:00",
+                    "2026-10-25T12:34:56.123456+01:00",
+                    "2026-10-25T12:34:56.123Z",
+                    "2026-10-25T12:34:56+00:00",
+                ]:
+                    require(rx.fullmatch(invalid) is None, "noncanonical UTC timestamp accepted " + location)
+            for key, value in node.items():
+                check_utc_patterns(value, location + "/" + key)
+        elif isinstance(node, list):
+            for index, value in enumerate(node):
+                check_utc_patterns(value, location + "/" + str(index))
+    for schema in schemas.values():
+        check_utc_patterns(schema, schema["$id"])
+
     # All paired normative clauses, not merely the new chapter.
     clause = re.compile(r'`(PKG-[A-Z]+-\d+)`\s*[:：]')
     strength = re.compile(r'\b(MUST NOT|SHOULD NOT|MUST|SHOULD|MAY)\b')
