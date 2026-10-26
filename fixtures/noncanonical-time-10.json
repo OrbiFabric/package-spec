@@ -12,32 +12,7 @@
       {
         "path": ".packtell/format.json",
         "kind": "file",
-        "bytes_base64": "eyJleHRlbnNpb25zIjpbXSwib3B0aW9uYWxfY2FwYWJpbGl0aWVzIjpbIm9yYmlmYWJyaWMucGFja2FnZS5jYXBhYmlsaXR5LmRlbGl2ZXJ5LWV2aWRlbmNlLnYxIiwib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkudmVyc2lvbi1zaWduYXR1cmUudjEiXSwicHJvZmlsZXMiOlsib3JiaWZhYnJpYy5wYWNrYWdlLnByb2ZpbGUuY29tcGxldGUudjEiXSwicHJvdG9jb2wiOiJvcmJpZmFicmljLnBhY2thZ2UiLCJwcm90b2NvbF92ZXJzaW9uIjoiMi4wIiwicmVxdWlyZWRfY2FwYWJpbGl0aWVzIjpbIm9yYmlmYWJyaWMucGFja2FnZS5jYXBhYmlsaXR5LmNvbnRlbnQtc2hhMjU2LnYxIiwib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkubGluZWFyLWhpc3RvcnkudjEiLCJvcmJpZmFicmljLnBhY2thZ2UuY2FwYWJpbGl0eS5wb3J0YWJsZS1tZW1vcnkudjEiXSwic2NoZW1hIjoib3JiaWZhYnJpYy5wYWNrYWdlLmZvcm1hdC52MiIsInRyZWVfcHJvZmlsZSI6Im9yYmlmYWJyaWMucGFja2FnZS10cmVlLnYxIn0="
-      },
-      {
-        "path": ".packtell/history/events.ndjson",
-        "kind": "file",
-        "bytes_base64": ""
-      },
-      {
-        "path": ".packtell/metadata/notes.json",
-        "kind": "file",
-        "bytes_base64": "eyJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwicmV2aXNpb25zIjpbXSwic2NoZW1hIjoib3JiaWZhYnJpYy5wYWNrYWdlLm5vdGVzLnYxIn0="
-      },
-      {
-        "path": ".packtell/metadata/package.json",
-        "kind": "file",
-        "bytes_base64": "eyJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwic2NoZW1hIjoib3JiaWZhYnJpYy5wYWNrYWdlLm1ldGFkYXRhLnYxIiwidGl0bGUiOiJGaXh0dXJlIn0="
-      },
-      {
-        "path": ".packtell/metadata/provenance.json",
-        "kind": "file",
-        "bytes_base64": "eyJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwicmVjb3JkcyI6W10sInNjaGVtYSI6Im9yYmlmYWJyaWMucGFja2FnZS5wcm92ZW5hbmNlLnYxIn0="
-      },
-      {
-        "path": ".packtell/metadata/tags.json",
-        "kind": "file",
-        "bytes_base64": "eyJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwicmV2aXNpb25zIjpbXSwic2NoZW1hIjoib3JiaWZhYnJpYy5wYWNrYWdlLnRhZ3MudjEifQ=="
+        "bytes_base64": "eyJleHRlbnNpb25zIjpbXSwib3B0aW9uYWxfY2FwYWJpbGl0aWVzIjpbXSwicHJvZmlsZXMiOltdLCJwcm90b2NvbCI6Im9yYmlmYWJyaWMucGFja2FnZSIsInByb3RvY29sX3ZlcnNpb24iOiIyLjAiLCJyZXF1aXJlZF9jYXBhYmlsaXRpZXMiOlsib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkuY29udGVudC1zaGEyNTYudjEiLCJvcmJpZmFicmljLnBhY2thZ2UuY2FwYWJpbGl0eS5saW5lYXItaGlzdG9yeS52MSJdLCJzY2hlbWEiOiJvcmJpZmFicmljLnBhY2thZ2UuZm9ybWF0LnYyIiwidHJlZV9wcm9maWxlIjoib3JiaWZhYnJpYy5wYWNrYWdlLXRyZWUudjEifQ=="
       },
       {
         "path": ".packtell/objects/sha256/",
@@ -65,7 +40,7 @@
       {
         "path": ".packtell/versions/019a0000-0000-7000-8000-000000000002/version.json",
         "kind": "file",
-        "bytes_base64": "eyJjcmVhdGVkX2F0IjoiMjAyNi0xMC0wNVQwMDowMDowMC4wMDAwMDArMDA6MDAiLCJvcHRpb25hbF9jYXBhYmlsaXRpZXMiOlsib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkuZGVsaXZlcnktZXZpZGVuY2UudjEiLCJvcmJpZmFicmljLnBhY2thZ2UuY2FwYWJpbGl0eS52ZXJzaW9uLXNpZ25hdHVyZS52MSJdLCJvcmRpbmFsIjoxLCJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwicGFja2FnZV92ZXJzaW9uX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAyIiwicGFyZW50X3ZlcnNpb25faWQiOm51bGwsInByb2ZpbGVzIjpbIm9yYmlmYWJyaWMucGFja2FnZS5wcm9maWxlLmNvbXBsZXRlLnYxIl0sInByb3RvY29sIjoib3JiaWZhYnJpYy5wYWNrYWdlIiwicHJvdG9jb2xfdmVyc2lvbiI6IjIuMCIsInJlcXVpcmVkX2NhcGFiaWxpdGllcyI6WyJvcmJpZmFicmljLnBhY2thZ2UuY2FwYWJpbGl0eS5jb250ZW50LXNoYTI1Ni52MSIsIm9yYmlmYWJyaWMucGFja2FnZS5jYXBhYmlsaXR5LmxpbmVhci1oaXN0b3J5LnYxIiwib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkucG9ydGFibGUtbWVtb3J5LnYxIl0sInNjaGVtYSI6Im9yYmlmYWJyaWMucGFja2FnZS52ZXJzaW9uLnYyIiwic2VhbGVkX21ldGFkYXRhIjp7InRpdGxlIjoiRml4dHVyZSJ9LCJ0cmVlX3Byb2ZpbGUiOiJvcmJpZmFicmljLnBhY2thZ2UtdHJlZS52MSJ9"
+        "bytes_base64": "eyJjcmVhdGVkX2F0IjoiMjAyNi0xMC0wNVQwMDowMDowMC4wMDAwMDArMDA6MDAiLCJvcHRpb25hbF9jYXBhYmlsaXRpZXMiOltdLCJvcmRpbmFsIjoxLCJwYWNrYWdlX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAxIiwicGFja2FnZV92ZXJzaW9uX2lkIjoiMDE5YTAwMDAtMDAwMC03MDAwLTgwMDAtMDAwMDAwMDAwMDAyIiwicGFyZW50X3ZlcnNpb25faWQiOm51bGwsInByb2ZpbGVzIjpbXSwicHJvdG9jb2wiOiJvcmJpZmFicmljLnBhY2thZ2UiLCJwcm90b2NvbF92ZXJzaW9uIjoiMi4wIiwicmVxdWlyZWRfY2FwYWJpbGl0aWVzIjpbIm9yYmlmYWJyaWMucGFja2FnZS5jYXBhYmlsaXR5LmNvbnRlbnQtc2hhMjU2LnYxIiwib3JiaWZhYnJpYy5wYWNrYWdlLmNhcGFiaWxpdHkubGluZWFyLWhpc3RvcnkudjEiXSwic2NoZW1hIjoib3JiaWZhYnJpYy5wYWNrYWdlLnZlcnNpb24udjIiLCJzZWFsZWRfbWV0YWRhdGEiOnsidGl0bGUiOiJGaXh0dXJlIn0sInRyZWVfcHJvZmlsZSI6Im9yYmlmYWJyaWMucGFja2FnZS10cmVlLnYxIn0="
       },
       {
         "path": "hello.txt",
