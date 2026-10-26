@@ -78,3 +78,7 @@
 `PKG-GOV-033`：2.1 的可选 Cloud 存储架构 **MUST NOT** 引入对 Cloud/Provider 的 Package Core 依赖，或静默改变现有 `protocol_version="2.0"` 文件、Version Subject、schema、签名与 conformance 的字节语义。
 
 `PKG-GOV-034`：新增 Storage 服务 **MUST** 保持 Control Plane 与可选 Managed/BYO Data Plane 的明确边界；托管备份位于实际 Provider，不等于在控制面持久化用户实体。服务 API 与便携协议应分别版本化。参见 [第 11 章](specification/zh-CN/11-storage-control-plane.md)。
+
+## 9. 开发期 2.0 时间表示规范明确重置（Founder 2026-10-25）
+
+`PKG-GOV-035`：Founder 在任何正式 2.0 发布前，明确批准**一次开发期 2.0 Clean Break**：所有现行 Portable 2.0 时间字段的规范串 MUST 为 UTC RFC3339、**固定六位微秒、字面 `+00:00`**，而非 `Z`。本调整覆盖先前开发快照的 timestamp 字节规范，但不是已发行 2.x 的 minor 兼容升级。实现 MUST 更新 Subject、Schema、Conformance vectors 和验证器，并 MUST NOT 静默把旧 `Z` 输入视为新规范签名。已签名数据的哈希和签名字节随重新生成的新规范内容变化；不得通过字符串替换伪造原签名有效。后续正式发布后的破坏性字节变更继续适用 `PKG-GOV-010/011` 的 major 升级规则。

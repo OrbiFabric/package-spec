@@ -55,3 +55,7 @@ Stable namespaces include `PKG-CORE-*`, `PKG-TREE-*`, `PKG-VERSION-*`, `PKG-CONT
 `PKG-GOV-033`: The optional 2.1 Cloud storage architecture **MUST NOT** introduce a Cloud/Provider dependency for Package Core or silently alter byte semantics of existing `protocol_version="2.0"` files, Version Subjects, schemas, signatures, or conformance.
 
 `PKG-GOV-034`: New Storage services **MUST** distinguish Control Plane from optional Managed/BYO Data Planes; managed backups reside at actual providers, not as persistent user bytes in the control plane. Service APIs and the portable protocol are separately versioned. See [chapter 11](specification/en/11-storage-control-plane.md).
+
+## 9. Explicit pre-release 2.0 timestamp representation reset (Founder 2026-10-25)
+
+`PKG-GOV-035`: Before any public 2.0 release, the Founder expressly authorizes **one development-time 2.0 clean break**: every Portable 2.0 timestamp MUST be UTC RFC3339 with **exactly six microsecond digits and literal `+00:00`**, not `Z`. This supersedes pre-release timestamp byte semantics and is not a backward-compatible published 2.x minor upgrade. Implementations MUST update Subjects, schemas, conformance vectors, and verifiers, and MUST NOT silently accept old `Z` as a current signed timestamp. New signed hashes and bytes must be generated from new canonical content; string replacement cannot make historical signatures valid. Once published, breaking changes remain subject to the major-version rule in `PKG-GOV-010/011`.

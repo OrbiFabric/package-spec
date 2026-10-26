@@ -94,9 +94,12 @@ def verify_envelope(e, domain):
     return msg
 
 def main():
+    require('date-time' in jsonschema.FormatChecker.checkers,
+            'date-time validation unavailable; install jsonschema[format] (see conformance/README.md)')
     assets = {p: parse(p.read_bytes()) for directory in ['schemas', 'profiles', 'vocabularies', 'fixtures', 'vectors', 'conformance']
               for p in (ROOT / directory).glob('*.json')}
     schemas = {v['$id']: v for p, v in assets.items() if p.parent.name == 'schemas'}
+    v = assets[ROOT / 'vectors/crypto.v2.json']
     require(len(schemas) == len(list((ROOT / 'schemas').glob('*.json'))), 'duplicate schema ID')
     registry = Registry().with_resources((k, Resource.from_contents(v)) for k, v in schemas.items())
     for schema in schemas.values():
@@ -114,6 +117,27 @@ def main():
         require(key in schemas, 'missing schema: ' + key)
         jsonschema.Draft202012Validator(schemas[key], registry=registry,
                                        format_checker=jsonschema.FormatChecker()).validate(doc)
+    # Pre-release timestamp clean break: all portable date-times are six UTC
+    # microseconds and literal +00:00, never the earlier Z spelling.
+    # JSON Schema's generic date-time format alone is insufficient.
+    def check_utc_patterns(node, location):
+        if isinstance(node, dict):
+            if node.get("format") == "date-time":
+                pattern = node.get("pattern")
+                require(isinstance(pattern, str), "missing canonical time pattern " + location)
+                validator = jsonschema.Draft202012Validator(node, format_checker=jsonschema.FormatChecker())
+                for valid in v['canonical_timestamps']['valid']:
+                    require(validator.is_valid(valid), "new UTC timestamp rejected " + location)
+                for invalid in v['canonical_timestamps']['invalid']:
+                    require(not validator.is_valid(invalid), "noncanonical UTC timestamp accepted " + location)
+            for key, value in node.items():
+                check_utc_patterns(value, location + "/" + key)
+        elif isinstance(node, list):
+            for index, value in enumerate(node):
+                check_utc_patterns(value, location + "/" + str(index))
+    for schema in schemas.values():
+        check_utc_patterns(schema, schema["$id"])
+
     # All paired normative clauses, not merely the new chapter.
     clause = re.compile(r'`(PKG-[A-Z]+-\d+)`\s*[:：]')
     strength = re.compile(r'\b(MUST NOT|SHOULD NOT|MUST|SHOULD|MAY)\b')
@@ -158,7 +182,6 @@ def main():
         require(bool(failures) == ('INVALID_SCHEMA' in f['expected']['reason_codes']), 'schema expectation ' + f['id'])
         schema_failures += len(failures)
     for name in manifest['vectors']: relative(ROOT / 'conformance', name)
-    v = assets[ROOT / 'vectors/crypto.v2.json']
     require(v['warning'] == 'TEST ONLY — NEVER PRODUCTION', 'test key warning')
     key = Ed25519PrivateKey.from_private_bytes(bytes.fromhex(v['seed_hex']))
     pub = key.public_key().public_bytes(Encoding.Raw, PublicFormat.Raw)
@@ -176,6 +199,12 @@ def main():
     for name in ['package', 'version', 'manifest', 'subject', 'signature_envelope']: validate(v[name])
     msg = verify_envelope(v['signature_envelope'], 'orbifabric.package.version-signature.v2')
     require(msg.hex() == v['signing_input_hex'] and b64url(key.sign(msg)) == v['signature_envelope']['signature'], 'signature vector')
+    # A spelling change is a signed-byte change, not normalization on read.
+    altered = dict(v['signature_envelope'])
+    altered['signed_at'] = altered['signed_at'].removesuffix('+00:00') + 'Z'
+    try: verify_envelope(altered, 'orbifabric.package.version-signature.v2')
+    except Exception: pass
+    else: raise AssertionError('timestamp substitution retained signature validity')
     for f in fixtures.values():
         if f['input']['kind'] != 'tree': continue
         t = tree(f)
@@ -192,12 +221,15 @@ def main():
         for path, raw in t.items():
             if raw is not None and '/evidence/objects/' in path:
                 e = parse(raw);s = e['subject']
+                _, expected = subject(t, s['package_version_id'])
+                require(s['version_subject_digest'] == expected, 'evidence version subject')
                 require(e['subject_digest'] == digest(s['schema'].encode() + b'\n' + canonical(s)), 'evidence digest')
                 verify_envelope(e, 'orbifabric.package.evidence-envelope.v1')
     for inv in v['invariants']:
         a = tree(parse(relative(ROOT / 'vectors', inv['before']).read_bytes()))
         b = tree(parse(relative(ROOT / 'vectors', inv['after']).read_bytes()))
         require(subject(a, inv['package_version_id']) == subject(b, inv['package_version_id']), 'evidence changed subject')
+        require(subject(a, inv['package_version_id'])[1] == inv['subject_digest'], 'invariant subject digest')
         for p in a:
             if '/verification/versions/' in p: require(a[p] == b[p], 'evidence changed signature')
             if '/evidence/deliveries/' in p:

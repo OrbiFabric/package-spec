@@ -38,7 +38,7 @@ Status: Draft / Normative
 
 `PKG-CORE-130`: Protocol strings use UTF-8; machine path components MUST undergo Unicode NFC normalization before entering portable authority.
 
-`PKG-CORE-131`: Canonical timestamps MUST use UTC RFC3339 in the form `YYYY-MM-DDThh:mm:ss.ffffffZ`.
+`PKG-CORE-131`: Canonical timestamps MUST use UTC RFC3339 in the form `YYYY-MM-DDThh:mm:ss.ffffff+00:00`.
 
 `PKG-CORE-132`: Counts, sizes, and ordinals in protocol authority MUST use non-negative integers; exact identity facts MUST NOT rely on floating-point values.
 
@@ -50,7 +50,7 @@ Minimum conceptual shape:
 
 ```json
 {
-  "created_at": "2026-10-05T00:00:00.000000Z",
+  "created_at": "2026-10-05T00:00:00.000000+00:00",
   "package_id": "019a0000-0000-7000-8000-000000000001",
   "schema": "orbifabric.package.package.v2"
 }
